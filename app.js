@@ -5,8 +5,10 @@ const ARTICLES = [
 const ADDS = [
     "img/adds/ImplanteCraneal.png",
     "img/adds/notienes.png",
-    "img/adds/Quengrejo.png",
+    "img/adds/cangrejo2.png",
     "img/adds/ratas.png",
+    "img/adds/huye.png",
+    "img/adds/Harry.png",
 ]
 
 async function loadArticle(path) {
@@ -16,8 +18,8 @@ async function loadArticle(path) {
         let lines = text.split('\n');
 
         let obj = {
-            date: lines.shift().trim(), // Primera línea como "date"
-            content: lines.join('\n') // Resto del contenido
+            date: lines.shift().trim(),
+            content: lines.join('\n')
         }
         console.log(obj);
         return obj;
