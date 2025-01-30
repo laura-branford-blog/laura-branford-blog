@@ -2,6 +2,12 @@ const ARTICLES = [
     "articles/example.txt"
 ]
 
+const ADDS = [
+    "img/adds/ImplanteCraneal.png",
+    "img/adds/notienes.png",
+    "img/adds/Quengrejo.png",
+    "img/adds/ratas.png",
+]
 
 async function loadArticle(path) {
     try {
@@ -42,12 +48,22 @@ async function main() {
             todayArticle = article;
     });
 
-    if (!todayArticle) {
-        console.log("no article today");
-        return;
-    }
+    document.getElementById("content-text").innerHTML = todayArticle
+    ? todayArticle.content
+    : "No se encontraron entradas de blog para hoy.";
 
-    document.getElementById("content-text").innerText = todayArticle.content;
+    
+
+    document.querySelectorAll('.banner').forEach(banner => 
+    {
+        let randomAdd = ADDS[Math.floor(Math.random() * ADDS.length)];
+        banner.src = randomAdd;
+        banner.onclick = () => {
+            window.open('http://virus-ruinoso.com/', '_blank');
+        }
+    }
+    );
+    
 }
 
 window.onload = () => main();
