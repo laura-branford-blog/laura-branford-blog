@@ -7,7 +7,9 @@ const ARTICLES = [
     "articles/19_11_1996.txt",
     "articles/05_12_1996.txt",
     "articles/28_01_1997.txt",
-    "articles/15_01_1997.txt"
+    "articles/15_01_1997.txt",
+    "articles/14_01_1997.txt",
+    "articles/12_01_1997.txt"
 ]
 
 const ADDS = [
