@@ -5,6 +5,10 @@ body {
     color: rgb(0, 0, 0);
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     display: flex;
+    
+    background-image: url('img/image.png');
+    /* background-size: cover;  */
+    background-repeat: repeat; 
 }
 .sidebar {
     width: 350px;
@@ -17,6 +21,27 @@ body {
     overflow: hidden;
     color: #ddd;
 }
+
+.right-sidebar {
+    width: 250px;
+    height: 100vh;
+    padding: 20px;
+    margin-right: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    color: #ddd;
+}
+
+.right-sidebar img{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(10%, -50%);
+    width: 80%;
+}
+
 .portrait {
     height: 200px;
     border: 3px solid red;
@@ -56,6 +81,7 @@ body {
 }
 .main-content {
     margin-left: 400px;
+    margin-right: 275px;
     padding: 20px;
     flex-grow: 1;
     /* background-color: #333; */
@@ -88,4 +114,8 @@ body {
     max-height: 300px;
     display: block;
     margin: 10px 0;
+}
+
+.hidden{
+    display: none;
 }

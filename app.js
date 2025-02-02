@@ -11,6 +11,13 @@ const ADDS = [
     "img/adds/Harry.png",
 ]
 
+const DELETE_DATE = {
+    day: 1,
+    month: 2,
+    year: 1997
+}
+const deletedDate = new Date(DELETE_DATE.year, DELETE_DATE.month - 1, DELETE_DATE.day)
+
 async function loadArticle(path) {
     try {
         let response = await fetch(path);
@@ -37,24 +44,45 @@ async function loadArticles() {
     return articles
 }
 
+function displayDeleted()
+{
+    document.querySelectorAll('.deletable').forEach(d => d.classList.add('hidden'));
+    let deleted = document.querySelector('.deleted')
+    deleted.classList.remove('hidden');
+    deleted.innerHTML = "¡¡ERROR FATAL!!: ESTE BLOG HA SIDO BORRADO EL " + 
+        `${deletedDate.getDate()}/${(deletedDate.getMonth() + 1).toString().padStart(2, '0')}/${deletedDate.getFullYear()}`;
+}
+
+
+
 async function main() {
-    let articles = await loadArticles();
+
     const systemDate = new Date();
     const formattedDate = `${systemDate.getDate()}/${(systemDate.getMonth() + 1).toString().padStart(2, '0')}/${systemDate.getFullYear()}`;
-    console.log("system date: " + formattedDate)
-    document.getElementById("date").innerText = formattedDate;
 
-    let todayArticle = null;
-    articles.forEach(article => {
-        if (article && article.date == formattedDate)
-            todayArticle = article;
-    });
+    const detetedDate = new Date(DELETE_DATE.year, DELETE_DATE.month - 1, DELETE_DATE.day)
 
-    document.getElementById("content-text").innerHTML = todayArticle
-    ? todayArticle.content
-    : "No se encontraron entradas de blog para hoy.";
+    if(systemDate.getTime() >= deletedDate.getTime())
+    {
+        displayDeleted();
+    }
+    else
+    {
+        let articles = await loadArticles();
+        console.log("system date: " + formattedDate)
+        document.getElementById("date").innerText = formattedDate;
 
-    
+        let todayArticle = null;
+        articles.forEach(article => {
+            if (article && article.date == formattedDate)
+                todayArticle = article;
+        });
+
+        document.getElementById("content-text").innerHTML = todayArticle
+        ? todayArticle.content
+        : "No se encontraron entradas de blog para hoy.";
+    }
+
 
     document.querySelectorAll('.banner').forEach(banner => 
     {
