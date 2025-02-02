@@ -100,9 +100,11 @@ async function main() {
         banner.src = randomAdd;
         banner.onclick = () => {
             window.open('http://virus-ruinoso.com/', '_blank');
+
         }
     }
     );
+
     
 }
 
