@@ -1,5 +1,13 @@
 const ARTICLES = [
-    "articles/example.txt"
+    "articles/29_11_1996.txt",
+    "articles/07_11_1996.txt",
+    "articles/20_10_1996.txt",
+    "articles/12_09_1996.txt",
+    "articles/22_12_1996.txt",
+    "articles/19_11_1996.txt",
+    "articles/05_12_1996.txt",
+    "articles/28_01_1997.txt",
+    "articles/15_01_1997.txt"
 ]
 
 const ADDS = [
