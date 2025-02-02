@@ -68,7 +68,7 @@ function displayDeleted()
 async function main() {
 
     const systemDate = new Date();
-    const formattedDate = `${systemDate.getDate()}/${(systemDate.getMonth() + 1).toString().padStart(2, '0')}/${systemDate.getFullYear()}`;
+    const formattedDate = `${systemDate.getDate().toString().padStart(2, '0')}/${(systemDate.getMonth() + 1).toString().padStart(2, '0')}/${systemDate.getFullYear()}`;
 
     const detetedDate = new Date(DELETE_DATE.year, DELETE_DATE.month - 1, DELETE_DATE.day)
 
